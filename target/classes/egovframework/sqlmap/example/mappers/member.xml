@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace ="member">
+	<select id = "logincheck" resultType = "String">
+		SELECT user_name AS userName From tb1_member
+		WHERE user_id = #{userId} And user_pw = #{userPw}
+	
+	</select>
+	
+	<select id = "viewMember" resultType="main.service.MemberVO">
+		Select
+			user_name AS userName,
+			user_id AS userId,
+			<!-- user_email AS userEmail, user_regdate AS userRegdate -->
+			FROM tb1_member
+			WHERE user_id = #{userId} And user_pw = #{userPw}
+
+	</select>
+</mapper>
